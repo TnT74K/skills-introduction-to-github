@@ -2,6 +2,35 @@
 
 _Get started using GitHub in less than an hour._
 
+## Random String Generator Application
+
+This repository now includes a **Random String Generator** - a C# application with a modern graphical user interface.
+
+### Features:
+- Generate random 10-character strings
+- Uses numbers, letters (both cases), and special characters
+- Ensures all generated strings are unique
+- Save and view history of all generated strings
+- Modern black and white UI theme
+
+### Quick Start:
+
+```bash
+cd RandomStringGenerator
+dotnet run
+```
+
+Or use the convenience scripts:
+- **Linux/macOS**: `./run.sh`
+- **Windows**: `run.bat`
+
+### Documentation:
+- [README](RandomStringGenerator/README.md) - Getting started guide
+- [UI_DESIGN](RandomStringGenerator/UI_DESIGN.md) - UI design details
+- [TESTING](RandomStringGenerator/TESTING.md) - Testing guide
+
+---
+
 ## Welcome
 
 People use GitHub to build some of the most advanced technologies in the world. Whether you’re visualizing data or building a new game, there’s a whole community and set of tools on GitHub that can help you do it even better. GitHub Skills’ “Introduction to GitHub” exercise guides you through everything you need to start contributing in less than an hour.
