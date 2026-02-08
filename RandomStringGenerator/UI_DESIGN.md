@@ -92,7 +92,7 @@ The application features a clean, modern black and white theme:
 - **Dimensions**: 600x400 pixels
 - Black bordered list box
 - Monospace font for strings (Consolas/Courier New)
-- Numbered list (newest first)
+- Numbered list (oldest first)
 - Black "Close" button
 
 ## Example Generated Strings

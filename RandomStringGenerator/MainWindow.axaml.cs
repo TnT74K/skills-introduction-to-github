@@ -97,27 +97,16 @@ public partial class MainWindow : Window
 
     private HashSet<string> LoadHistory()
     {
-        var history = new HashSet<string>();
-        
-        if (File.Exists(HistoryFile))
-        {
-            var lines = File.ReadAllLines(HistoryFile);
-            foreach (var line in lines)
-            {
-                if (!string.IsNullOrWhiteSpace(line))
-                {
-                    history.Add(line.Trim());
-                }
-            }
-        }
-        
-        return history;
+        return new HashSet<string>(LoadHistoryLines());
     }
 
     private List<string> LoadHistoryAsList()
     {
-        var history = new List<string>();
-        
+        return LoadHistoryLines().ToList();
+    }
+
+    private IEnumerable<string> LoadHistoryLines()
+    {
         if (File.Exists(HistoryFile))
         {
             var lines = File.ReadAllLines(HistoryFile);
@@ -125,12 +114,10 @@ public partial class MainWindow : Window
             {
                 if (!string.IsNullOrWhiteSpace(line))
                 {
-                    history.Add(line.Trim());
+                    yield return line.Trim();
                 }
             }
         }
-        
-        return history;
     }
 
     private void SaveToHistory(string value)
