@@ -65,7 +65,7 @@ public partial class MainWindow : Window
     {
         try
         {
-            var history = LoadHistory();
+            var history = LoadHistoryAsList();
             
             if (history.Count == 0)
             {
@@ -98,6 +98,25 @@ public partial class MainWindow : Window
     private HashSet<string> LoadHistory()
     {
         var history = new HashSet<string>();
+        
+        if (File.Exists(HistoryFile))
+        {
+            var lines = File.ReadAllLines(HistoryFile);
+            foreach (var line in lines)
+            {
+                if (!string.IsNullOrWhiteSpace(line))
+                {
+                    history.Add(line.Trim());
+                }
+            }
+        }
+        
+        return history;
+    }
+
+    private List<string> LoadHistoryAsList()
+    {
+        var history = new List<string>();
         
         if (File.Exists(HistoryFile))
         {

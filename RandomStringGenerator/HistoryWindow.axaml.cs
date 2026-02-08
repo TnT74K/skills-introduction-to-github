@@ -1,7 +1,6 @@
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace RandomStringGenerator;
 
@@ -12,16 +11,14 @@ public partial class HistoryWindow : Window
         InitializeComponent();
     }
 
-    public HistoryWindow(HashSet<string> history) : this()
+    public HistoryWindow(List<string> history) : this()
     {
-        // Display history in reverse order (newest first)
-        var items = history.Reverse().ToList();
-        
-        for (int i = 0; i < items.Count; i++)
+        // Display history in chronological order (oldest first)
+        for (int i = 0; i < history.Count; i++)
         {
             var listItem = new TextBlock
             {
-                Text = $"{i + 1}. {items[i]}",
+                Text = $"{i + 1}. {history[i]}",
                 Margin = new Avalonia.Thickness(5),
                 Foreground = Avalonia.Media.Brushes.Black
             };
